@@ -17,24 +17,24 @@ function TopTabNavigator(props) {
   return (
     <View style={{ flex: 1 }}>
       <Tab.Navigator
-        swipeEnabled={false}
-        tabBarOptions={{
-          activeTintColor: colors.white,
-          inactiveTintColor: "rgba(255,255,255,0.8)",
-          indicatorStyle: { backgroundColor: colors.black },
-          indicatorContainerStyle: {
+        screenOptions={{
+          swipeEnabled: false,
+          tabBarActiveTintColor: colors.white,
+          tabBarInactiveTintColor: "rgba(255,255,255,0.8)",
+          tabBarIndicatorStyle: { backgroundColor: colors.white },
+          tabBarIndicatorContainerStyle: {
             width: "100%",
           },
-          labelStyle: styles.labelStyle,
-          style: [styles.tabBarStyle, { top: insets.top }],
-          scrollEnabled: false,
+          tabBarLabelStyle: styles.labelStyle,
+          tabBarStyle: [styles.tabBarStyle, { top: insets.top }],
+          tabBarScrollEnabled: false,
         }}
-        initialRouteName="Swipeable"
+        initialRouteName="Tab 1"
       >
-        <Tab.Screen name="NestedTab">
-          {(props) => <ScreenOneNestedTab {...props} />}
+        <Tab.Screen name="Tab 1">
+          {(props) => <ScreenOneSwipeable {...props} />}
         </Tab.Screen>
-        <Tab.Screen name="Swipeable">
+        <Tab.Screen name="Tab 2">
           {(props) => <ScreenOneSwipeable {...props} />}
         </Tab.Screen>
       </Tab.Navigator>

@@ -1,9 +1,11 @@
 import React, { useCallback } from "react";
-import { StyleSheet, Dimensions, View, FlatList } from "react-native";
+import { StyleSheet, Dimensions, View, FlatList, Text } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import data from "../../dataObjects/data";
 import { colors, navigationConstants } from "../../config/theme";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 const { height } = Dimensions.get("window");
 
@@ -16,16 +18,32 @@ const RenderSwipeAction = () => {
         backgroundColor: colors.black,
         width: "100%",
         height: "100%",
+        paddingHorizontal: 20,
       }}
     >
-      <Text style={{ color: colors.white, fontSize: 25 }}>
-        This Swipe Feature was enabled by a swipeable Component
+      <Text style={{ color: colors.white, fontSize: 20, paddingVertical: 20 }}>
+        Swipeable Component
+      </Text>
+      <Text
+        style={{ color: colors.darkRed, fontSize: 16, paddingVertical: 20 }}
+      >
+        How do we get rid of the bottom tab bar?
+      </Text>
+      <Text style={{ color: colors.white, fontSize: 12, paddingVertical: 20 }}>
+        1) Reference the root stack navigator. This is done by by calling the
+        navigation.navigate function. This option is great for onclick events.
+        This option does not work well with the swipeable component - needs to
+        take in a component for seamless slide animation (not a function).
+      </Text>
+      <Text style={{ color: colors.white, fontSize: 12, paddingVertical: 20 }}>
+        2) Reference a screen with a modal that will overlap the bottom
+        navigation bar.
       </Text>
     </View>
   );
 };
 
-function ScreenOneNestedTab(props) {
+function ScreenOneNestedTab() {
   const Tab = createMaterialTopTabNavigator();
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
@@ -50,21 +68,7 @@ function ScreenOneNestedTab(props) {
 
   const _renderItem = useCallback(({ item }) => (
     <View style={{ flex: 1 }}>
-      <Tab.Navigator
-        swipeEnabled={false}
-        tabBarOptions={{
-          activeTintColor: colors.white,
-          inactiveTintColor: "rgba(255,255,255,0.8)",
-          indicatorStyle: { backgroundColor: colors.black },
-          indicatorContainerStyle: {
-            width: "100%",
-          },
-          labelStyle: styles.labelStyle,
-          style: [styles.tabBarStyle, { top: insets.top }],
-          scrollEnabled: true,
-        }}
-        initialRouteName="TabTwo"
-      >
+      <Tab.Navigator>
         <Tab.Screen name="TabOne">{() => <RenderSwipeAction />}</Tab.Screen>
         <Tab.Screen name="TabTwo">
           {() => (
@@ -76,7 +80,16 @@ function ScreenOneNestedTab(props) {
                 justifyContent: "center",
               }}
             >
-              {item.title}
+              <Text>{item.title}</Text>
+              <View style={{ alignItems: "center", justifyContent: "center" }}>
+                <TouchableWithoutFeedback onPress={onNavigationScreenFive}>
+                  <View
+                    style={{ alignItems: "center", justifyContent: "center" }}
+                  >
+                    <Text>Press Me</Text>
+                  </View>
+                </TouchableWithoutFeedback>
+              </View>
             </View>
           )}
         </Tab.Screen>
@@ -96,7 +109,6 @@ function ScreenOneNestedTab(props) {
         getItemLayout={_ItemLayout}
         snapToInterval={height - bottomNavHeight}
         snapToAlignment={"center"}
-        viewabilityConfig={viewConfigRef.current}
         decelerationRate={0}
       />
     </View>

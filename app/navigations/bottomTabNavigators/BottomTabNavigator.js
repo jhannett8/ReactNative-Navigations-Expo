@@ -14,15 +14,16 @@ const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
   const insets = useSafeAreaInsets();
-  const bottomNavHeight = navigationConstants.bottomNavBarHeight + insets.bottom;
+  const bottomNavHeight =
+    navigationConstants.bottomNavBarHeight + insets.bottom;
 
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        showLabel: false,
-        activeTintColor: colors.darkRed,
-        inactiveTintColor: colors.white,
-        style: {
+      screenOptions={{
+        tabBarShowLabel: false,
+        tabBarActiveTintColor: colors.darkRed,
+        tabBarInactiveTintColor: colors.white,
+        tabBarStyle: {
           backgroundColor: colors.darkGray,
           height: bottomNavHeight,
         },
@@ -32,17 +33,18 @@ const BottomTabNavigator = () => {
         name="TopTabNavigator"
         component={TopTabNavigator}
         options={{
-          tabBarIcon: () => (
-            <FontAwesome name="glass" color={colors.white} size={35} />
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="glass" color={color} size={25} />
           ),
+          headerShown: false,
         }}
       />
       <Tab.Screen
         name="screenTwoAppNavigator"
         component={ScreenTwo}
         options={{
-          tabBarIcon: () => (
-            <FontAwesome name="music" color={colors.white} size={25} />
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="music" color={color} size={25} />
           ),
         }}
       />
@@ -50,8 +52,8 @@ const BottomTabNavigator = () => {
         name="screenThreeAppNavigator"
         component={ScreenThree}
         options={{
-          tabBarIcon: () => (
-            <FontAwesome name="home" size={25} color={colors.white} />
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="home" size={25} color={color} />
           ),
         }}
       />
@@ -59,8 +61,8 @@ const BottomTabNavigator = () => {
         name="screenFourAppNavigator"
         component={ScreenFour}
         options={{
-          tabBarIcon: () => (
-            <FontAwesome name="road" size={25} color={colors.white} />
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="road" size={25} color={color} />
           ),
         }}
       />
