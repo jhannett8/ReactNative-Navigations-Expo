@@ -1,6 +1,6 @@
 import React from "react";
 
-import BottomNavigator from "./bottomTabNavigators/BottomNavigator";
+import BottomTabNavigator from "./bottomTabNavigators/BottomTabNavigator";
 import ScreenFive from "../screens/ScreenFive";
 import ScreenSix from "../screens/ScreenSix";
 
@@ -14,7 +14,7 @@ function RootStack() {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="BottomNavigator" component={BottomNavigator} />
+      <Stack.Screen name="BottomTabNavigator" component={BottomTabNavigator} />
       <Stack.Screen
         name="screenFiveRootStack"
         component={ScreenFive}

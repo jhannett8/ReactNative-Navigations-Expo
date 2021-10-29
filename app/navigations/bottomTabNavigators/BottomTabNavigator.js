@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { FontAwesome } from "@expo/vector-icons";
 
-import TabNavigator from "../topTabNavigators/TabNavigator"
+import TopTabNavigator from "../topTabNavigators/TopTabNavigator";
 import ScreenTwo from "../../screens/ScreenTwo";
 import ScreenThree from "../../screens/ScreenThree";
 import ScreenFour from "../../screens/ScreenFour";
@@ -12,7 +12,7 @@ import { colors, navigationConstants } from "../../config/theme";
 
 const Tab = createBottomTabNavigator();
 
-const AppNavigator = () => {
+const BottomTabNavigator = () => {
   const insets = useSafeAreaInsets();
   const bottomNavHeight = navigationConstants.bottomNavBarHeight + insets.bottom;
 
@@ -29,8 +29,8 @@ const AppNavigator = () => {
       }}
     >
       <Tab.Screen
-        name="TabNavigator"
-        component={TabNavigator}
+        name="TopTabNavigator"
+        component={TopTabNavigator}
         options={{
           tabBarIcon: () => (
             <FontAwesome name="glass" color={colors.white} size={35} />
@@ -68,4 +68,4 @@ const AppNavigator = () => {
   );
 };
 
-export default AppNavigator;
+export default BottomTabNavigator;
