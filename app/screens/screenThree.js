@@ -8,8 +8,4 @@ function screenThree(props) {
     );
 }
 
-const styles = StyleSheet.create({
-    
-})
-
 export default screenThree;

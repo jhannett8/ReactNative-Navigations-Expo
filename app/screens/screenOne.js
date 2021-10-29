@@ -1,13 +1,11 @@
 import React from 'react';
 
-function screenOne(props) {
+function ScreenOne(props) {
     return (
         <div>
             
         </div>
     );
 }
-const styles = StyleSheet.create({
-    
-})
-export default screenOne;
+
+export default ScreenOne;

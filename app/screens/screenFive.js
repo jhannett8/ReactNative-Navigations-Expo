@@ -1,6 +1,6 @@
 import React from 'react';
 
-function screenFive(props) {
+function ScreenFive(props) {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function screenFive(props) {
     );
 }
 
-export default screenFive;
+export default ScreenFive;

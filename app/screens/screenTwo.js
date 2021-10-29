@@ -1,14 +1,11 @@
 import React from 'react';
 
-function screenTwo(props) {
+function ScreenTwo(props) {
     return (
         <div>
             
         </div>
     );
 }
-const styles = StyleSheet.create({
-    
-})
 
-export default screenTwo;
+export default ScreenTwo;

@@ -3,10 +3,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { FontAwesome } from "@expo/vector-icons";
 
-import screenOne from "../../screens/screenOne";
-import screenTwo from "../../screens/screenTwo";
-import screenThree from "../../screens/screenThree";
-import screenFour from "../../screens/screenFour";
+import ScreenOne from "../../screens/ScreenOne";
+import ScreenTwo from "../../screens/ScreenTwo";
+import ScreenThree from "../../screens/ScreenThree";
+import ScreenFour from "../../screens/ScreenFour";
 
 import { colors, navigationConstants } from "../../config/theme";
 
@@ -30,7 +30,7 @@ const AppNavigator = () => {
     >
       <Tab.Screen
         name="screenOneAppNavigator"
-        component={screenOne}
+        component={ScreenOne}
         options={{
           tabBarIcon: () => (
             <FontAwesome name="glass" color={colors.white} size={35} />
@@ -39,7 +39,7 @@ const AppNavigator = () => {
       />
       <Tab.Screen
         name="screenTwoAppNavigator"
-        component={screenTwo}
+        component={ScreenTwo}
         options={{
           tabBarIcon: () => (
             <FontAwesome name="music" color={colors.white} size={25} />
@@ -48,7 +48,7 @@ const AppNavigator = () => {
       />
       <Tab.Screen
         name="screenThreeAppNavigator"
-        component={screenThree}
+        component={ScreenThree}
         options={{
           tabBarIcon: () => (
             <FontAwesome name="home" size={25} color={colors.white} />
@@ -57,7 +57,7 @@ const AppNavigator = () => {
       />
       <Tab.Screen
         name="screenFourAppNavigator"
-        component={screenFour}
+        component={ScreenFour}
         options={{
           tabBarIcon: () => (
             <FontAwesome name="road" size={25} color={colors.white} />

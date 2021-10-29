@@ -1,13 +1,10 @@
 import React from 'react';
 
-function screenFour(props) {
+function ScreenFour(props) {
     return (
         <div>
             
         </div>
     );
 }
-const styles = StyleSheet.create({
-    
-})
-export default screenFour;
+export default ScreenFour;

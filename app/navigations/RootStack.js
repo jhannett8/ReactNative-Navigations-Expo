@@ -1,9 +1,8 @@
 import React from "react";
-import AppNavigator from "./AppNavigator";
 
-import BottomNavigator from "./bottomTabNavigators"
-import screenFive from "../screens/screenFive";
-import screenSix from "../screens/screenSix";
+import BottomNavigator from "./bottomTabNavigators/BottomNavigator";
+import ScreenFive from "../screens/ScreenFive";
+import ScreenSix from "../screens/ScreenSix";
 
 import { createStackNavigator } from "@react-navigation/stack";
 const Stack = createStackNavigator();
@@ -18,7 +17,7 @@ function RootStack() {
       <Stack.Screen name="BottomNavigator" component={BottomNavigator} />
       <Stack.Screen
         name="screenFiveRootStack"
-        component={screenFive}
+        component={ScreenFive}
         options={{
           gestureDirection: "horizontal-inverted",
           gestureEnabled: true,
@@ -26,7 +25,7 @@ function RootStack() {
       />
       <Stack.Screen
         name="screenSixRootStack"
-        component={screenSix}
+        component={ScreenSix}
         options={{ gestureEnabled: true }}
       />
     </Stack.Navigator>
