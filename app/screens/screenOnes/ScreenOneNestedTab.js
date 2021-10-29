@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ScreenOne(props) {
+function ScreenOneNestedTab(props) {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function ScreenOne(props) {
     );
 }
 
-export default ScreenOne;
+export default ScreenOneNestedTab;
